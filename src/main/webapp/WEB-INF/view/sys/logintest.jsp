@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="login.do" method="post">
+<form action="register.do" method="post">
 用户名：<input type="text" name="userName" /><br/>
-密码：<input type="text" name="userAge" /><br/>
+密码：<input type="text" name="password" /><br/>
 <input type="submit" value="提交" /></form>
 </body>
 </html>

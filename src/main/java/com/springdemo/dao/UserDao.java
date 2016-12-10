@@ -5,6 +5,6 @@ import com.springdemo.entity.User;
 
 
 public interface UserDao {
-	public User findById(Integer id);
+	public User saveUser(User user);
 
 }

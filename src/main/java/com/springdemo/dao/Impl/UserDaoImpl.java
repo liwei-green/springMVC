@@ -30,8 +30,8 @@ import com.springdemo.entity.User;
 public class UserDaoImpl implements UserDao {
 	@Autowired
 	private UserDao userDao;
-	/*@Autowired
-	private SessionFactory sessionFactory;*/
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	public UserDao getUserDao() {
 		return userDao;
@@ -41,49 +41,26 @@ public class UserDaoImpl implements UserDao {
 		this.userDao = userDao;
 	}
 
-	/*public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}*/
-
-	public User findById(Integer id) {
-
-		String ming = "张鹏";
-
-		User user = new User();
-		user.setName(ming);
-		user.setAge(25);
-		/*Session session = null;
-
+	public User saveUser(User user) {
+		Session session = null;
 		try {
 			session =  sessionFactory.openSession();
 
 			session.beginTransaction();
-			user = new User();
-			user.setName(ming);
-			user.setAge(25);
-
-
 			session.save(user);
 
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-
 			session.getTransaction().rollback();
 		} finally {
 			if (session != null) {
 				if (session.isOpen()) {
-
 					session.close();
 				}
 			}
 		}
-*/
 		return user;
 	}
 

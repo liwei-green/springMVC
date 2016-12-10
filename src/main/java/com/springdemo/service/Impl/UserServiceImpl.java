@@ -11,9 +11,7 @@ import com.springdemo.service.UserService;
 public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDao;
-	public User findById(Integer id) {
-		// TODO Auto-generated method stub
-		return userDao.findById(id);
+	public User saveUser(User user) {
+		return userDao.saveUser(user);
 	}
-
 }

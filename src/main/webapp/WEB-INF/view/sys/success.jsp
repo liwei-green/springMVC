@@ -9,6 +9,6 @@
 </head>
 <body>
  <%-- <%=request.getAttribute("message")%> --%>
-欢迎登陆！
+注册成功！
 </body>
 </html>
