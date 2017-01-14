@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-10-22 15:28:34 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.springdemo.entity.Permission" table="permission">
+		<id name="id" type="java.lang.Integer">
+			<column name="permid" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="permissionname" type="java.lang.String">
+			<column name="permissionname" length="100" />
+		</property>
+		<many-to-one name="role" column="roleid"/>
+	</class>
+</hibernate-mapping>

@@ -1,54 +1,29 @@
 package com.springdemo.dao.Impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
-import mysql.ConnectUitl;
-
-
-
-
-
-
-
-
-
-
-
-
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.test.context.ContextConfiguration;
 
 import com.springdemo.dao.UserDao;
 import com.springdemo.entity.User;
 
-
 @Repository
 public class UserDaoImpl implements UserDao {
-	@Autowired
-	private UserDao userDao;
+
 	@Autowired
 	private SessionFactory sessionFactory;
-
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
 
 	public User saveUser(User user) {
 		Session session = null;
 		try {
-			session =  sessionFactory.openSession();
+			session = sessionFactory.openSession();
 
 			session.beginTransaction();
 			session.save(user);
-
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -63,5 +38,30 @@ public class UserDaoImpl implements UserDao {
 		}
 		return user;
 	}
+
+	@SuppressWarnings("unchecked")
+	public User findByUserName(String userName) {
+		StringBuilder hqlQuery = new StringBuilder();
+		hqlQuery.append(" select bean from User bean where 1=1 ");
+		Session session = null;
+		session = sessionFactory.openSession();
+		if (userName != "") {
+			hqlQuery.append(" and bean.name ='" + userName + "'");
+		}
+		Query query = session.createQuery(hqlQuery.toString());
+		List<User> list = query.list();
+		User user = null;
+		if(list.isEmpty()){
+			System.out.println("no user");
+		}else{
+			user=list.get(0);
+		}
+		System.out.println(list.toString());
+		
+		
+		return user;
+	}
+
+
 
 }

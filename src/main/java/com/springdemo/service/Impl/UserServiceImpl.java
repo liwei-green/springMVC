@@ -11,7 +11,12 @@ import com.springdemo.service.UserService;
 public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDao;
+	
 	public User saveUser(User user) {
 		return userDao.saveUser(user);
+	}
+	
+	public User findByUserName(String userName) {
+		return userDao.findByUserName(userName);
 	}
 }

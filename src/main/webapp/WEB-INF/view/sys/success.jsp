@@ -8,7 +8,12 @@
 <title>首页</title>
 </head>
 <body>
- <%-- <%=request.getAttribute("message")%> --%>
-注册成功！
+<%=request.getAttribute("message")%>
+
+${requestScope.liuxg.id}<br/>
+${requestScope.liuxg.name}<br/>
+<form action="redis.do" method="post">
+
+<input type="submit" value="查询" /></form>
 </body>
 </html>
